@@ -1,0 +1,7 @@
+@use 'variables' as *;
+
+.line {
+  height: 0.5px;
+  background-color: $stone-150;
+  width: 100%;
+}

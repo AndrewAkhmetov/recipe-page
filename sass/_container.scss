@@ -1,0 +1,13 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.container {
+  margin: $spacing-1600 auto;
+  max-width: map-get($container-max-widths, lg);
+  width: 100%;
+  @include container-mq;
+
+  @media screen and (max-width: map-get($breakpoints, sm)) {
+    margin: 0;
+  }
+}

@@ -1,0 +1,26 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $stone-100;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+ul, ol {
+  padding-left: 24px;
+}
+
+li::marker {
+  color: $brown-800;
+}

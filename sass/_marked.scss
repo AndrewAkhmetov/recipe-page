@@ -1,0 +1,5 @@
+@use 'mixins' as *;
+
+.marked {
+  @include text-preset-4-bold;
+}

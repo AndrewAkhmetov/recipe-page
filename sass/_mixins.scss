@@ -1,0 +1,75 @@
+@use 'variables' as *;
+
+// Typography mixins
+@mixin text-base {
+  letter-spacing: $letter-spacing;
+}
+
+@mixin text-preset-1 {
+  @include text-base;
+  color: $stone-900;
+  font-family: $font-family-1;
+  font-size: $font-size-xl;
+  line-height: $line-height-md;
+  font-weight: $font-weight-regular;
+
+  @media screen and (max-width: map-get($breakpoints, sm)) {
+    font-size: 36px;
+  }
+}
+
+@mixin text-preset-2 {
+  @include text-base;
+  color: $brown-800;
+  font-family: $font-family-1;
+  font-size: $font-size-lg;
+  line-height: $line-height-md;
+  font-weight: $font-weight-regular;
+}
+
+@mixin text-preset-3 {
+  @include text-base;
+  color: $rose-800;
+  font-family: $font-family-2;
+  font-size: $font-size-md;
+  line-height: $line-height-md;
+  font-weight: $font-weight-semi-bold;
+}
+
+@mixin text-preset-4 {
+  @include text-base;
+  color: $stone-600;
+  font-family: $font-family-2;
+  font-size: $font-size-sm;
+  line-height: $line-height-lg;
+  font-weight: $font-weight-regular;
+}
+
+@mixin text-preset-4-bold {
+  @include text-base;
+  color: $stone-600;
+  font-family: $font-family-2;
+  font-size: $font-size-sm;
+  line-height: $line-height-lg;
+  font-weight: $font-weight-bold;
+}
+
+@mixin text-footer {
+  @include text-base;
+  color: $stone-600;
+  font-family: $font-family-2;
+  font-size: $font-size-xs;
+  line-height: $line-height-md;
+}
+
+// Container media query mixin
+@mixin container-mq {
+  @each $breakpoint, $breakpoint-value in $breakpoints {
+    $max-width-value: map-get($container-max-widths, $breakpoint);
+    @if $breakpoint-value and $max-width-value {
+      @media screen and (max-width: $breakpoint-value) {
+        max-width: $max-width-value;
+      }
+    }
+  }
+}

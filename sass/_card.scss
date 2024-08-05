@@ -1,0 +1,164 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-500;
+  padding: $spacing-500;
+  border-radius: $spacing-300;
+  background-color: $white;
+
+  &__header {
+    &-top-image {
+      width: 100%;
+      border-radius: $spacing-150;
+
+      @media screen and (max-width: map-get($breakpoints, sm)) {
+        border-radius: 0;
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-400;
+
+    &-title {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-300;
+      
+      &-header {
+        @include text-preset-1;
+      }
+  
+      &-text {
+        @include text-preset-4;
+      }
+    }
+
+    &-preparation {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-200;
+      padding: $spacing-300;
+      border-radius: $spacing-150;
+      background-color: $rose-50;
+  
+      &-header {
+        @include text-preset-3;
+      }
+  
+      &-list {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-100;
+        @include text-preset-4;
+
+        &-item {
+          padding-left: $spacing-200;
+        }
+      }
+    }
+
+    &-ingredients {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-300;
+
+      &-header {
+        @include text-preset-2;
+      }
+
+      &-list {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-100;
+        @include text-preset-4;
+
+        &-item {
+          padding-left: $spacing-200;
+        }
+      }
+    }
+
+    &-instructions {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-300;
+  
+      &-header {
+        @include text-preset-2;
+      }
+  
+      &-list {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-100;
+        @include text-preset-4;
+        
+        &-item {
+          padding-left: $spacing-200;
+        }
+
+        li::marker {
+          @include text-preset-4-bold;
+          color: $brown-800;
+        }
+      }
+    }
+
+    &-nutrition {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-300;
+      
+      &-header {
+        @include text-preset-2;
+      }
+  
+      &-text {
+        @include text-preset-4;
+      }
+      
+      tr:not(:last-child) {
+        border-bottom: 1px solid $stone-150;
+      }
+
+      &-td {
+        padding: $spacing-150 0;
+  
+        &_first-col {
+          padding-left: $spacing-400;
+          @include text-preset-4;
+        }
+  
+        &_second-col {
+          padding-right: $spacing-400;
+          @include text-preset-4-bold;
+          color: $brown-800;
+        }
+  
+        &_top {
+          padding-top: 0;
+        }
+  
+        &_bottom {
+          padding-bottom: 0;
+        }
+      }
+    }
+
+    @media screen and (max-width: map-get($breakpoints, sm)) {
+      padding: $spacing-500 $spacing-400;
+    }
+  }
+
+  @media screen and (max-width: map-get($breakpoints, sm)) {
+    padding: 0;
+    border-radius: 0;
+    gap: 0;
+  }
+}
